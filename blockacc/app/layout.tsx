@@ -1,4 +1,4 @@
-import HeaderAuth from "@/components/header-auth";
+import HeaderAuth from "@/app/ui/header-auth";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
@@ -34,13 +34,17 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="min-h-screen flex flex-col items-center">
-            <div className="flex-1 w-full flex flex-col gap-20 items-center">
-              <HeaderAuth />
-              <div className="flex flex-col gap-20 max-w-5xl p-5">
-                {children}
+
+            <div className="relative flex flex-1 w-full">
+
+              <div className="absolute top-5 right-5 flex flex-col items-center">
+                <HeaderAuth />
+                <hr className="w-full border-gray-300 mt-2" />
               </div>
 
+              <div className="flex flex-col gap-20 max-w-5xl p-5 mx-auto">{children}</div>
             </div>
+            
           </main>
         </ThemeProvider>
       </body>
