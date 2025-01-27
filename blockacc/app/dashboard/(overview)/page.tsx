@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 export default async function ProtectedPage() {
   const supabase = await createClient();
 
+  // console.log('      PPPPPPPProtected Page')
+
   const {
     data: { user },
   } = await supabase.auth.getUser();

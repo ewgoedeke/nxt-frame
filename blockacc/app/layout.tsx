@@ -1,8 +1,10 @@
 import HeaderAuth from "@/app/ui/header-auth";
+import SideNav from "@/app/ui/dashboard/sidenav";
+
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+
 import "./globals.css";
-// import "../components/ui/global1"
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -24,6 +26,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // console.log('***', children)
+  
   return (
     <html lang="en" className={geistSans.className} suppressHydrationWarning>
       <body className="bg-background text-foreground">
@@ -40,6 +44,10 @@ export default function RootLayout({
               <div className="absolute top-5 right-5 flex flex-col items-center">
                 <HeaderAuth />
                 <hr className="w-full border-gray-300 mt-2" />
+              </div>
+
+              <div>
+                <SideNav />
               </div>
 
               <div className="flex flex-col gap-20 max-w-5xl p-5 mx-auto">{children}</div>
